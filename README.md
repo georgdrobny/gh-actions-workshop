@@ -1,5 +1,5 @@
-# gh-abcs-actions
-> The GitHub ABCs actions training with workflow templates, examples, hands-on labs and additional learning resources.
+# gh-actions-workshop
+> The GitHub actions training with workflow templates, examples, hands-on labs and additional learning resources.
 
 ## Examples & Hands-on Labs
 
