@@ -8,7 +8,8 @@ References:
 
 ## 1.1 Create a new branch 
 1. Create a new branch named `module-01` based on `main`
-
+2. Switch to the `module-01` branch in the `code` view
+   
 ## 1.2 Update the workflow to trigger when a change is made to the labs folder on main branch
 
 1. Open the workflow file [github-actions-demo.yml](/.github/workflows/github-actions-demo.yml)
