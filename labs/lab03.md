@@ -7,22 +7,27 @@ References:
 - [Encrypted secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
 - [Accessing your secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#accessing-your-secrets)
 
-## 3.1 Create new encrypted secrets
+## 3.1 Create a new branch 
+1. Create a new branch named `module-03` based on `main`
+2. Switch to the `module-03` branch in the `code` view
+   
+## 3.2 Create new encrypted secrets
 
-1. Follow the guide to create a new environment called `UAT`, add a reviewer and an environment variable.
+1. Follow the guide to create a new environment called `UAT`, add yourself as a reviewer and add an environment variable.
     - [Creating an environment](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#creating-an-environment)
     - [Add required reviewers](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#required-reviewers)
-    - [Create an encrypted secret in the environment](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-environment) called `MY_ENV_SECRET`.
+    - [Create an encrypted secret in the environment](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-environment) called `MY_ENV_SECRET`
 2. Follow the guide to create a new repository secret called `MY_REPO_SECRET`
     - [Creating encrypted secrets for a repository](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)
 4. Open the workflow file [environments-secrets.yml](/.github/workflows/environments-secrets.yml)
-5. Edit the file and copy the following YAML content as a first job (after the `jobs:` line):
+5. Edit the file and remove the existing job named `remove-me` (lines 22 to 27)
+6. Copy the following YAML content as a first job (after the `jobs:` line, line 22):
 ```YAML
 
   use-secrets:
     name: Use secrets
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/module-03' }}
     steps:
       - name: Hello world action with secrets
         uses: actions/hello-world-javascript-action@main
@@ -41,16 +46,15 @@ References:
 ```YAML
 on:
   push:
-     branches: [main]
+     branches: [module-03]
   pull_request:
      branches: [main]
   workflow_dispatch:    
 ```
-7. Commit the changes into the `main` branch
+7. Commit the changes into the `module-03` branch
 8. Go to `Actions` and see the details of your running workflow
 
-
-## 3.2 Add a new workflow job to deploy to UAT environment
+## 3.3 Add a new workflow job to deploy to UAT environment
 
 1. Open the workflow file [environments-secrets.yml](/.github/workflows/environments-secrets.yml)
 2. Edit the file and copy the following YAML content between the test and prod jobs (before the `use-environment-prod:` line):
@@ -77,13 +81,13 @@ on:
 ```YAML
     needs: use-environment-uat
 ```
-8. Commit the changes into the `main` branch
+8. Commit the changes into the `module-03` branch
 9. Go to `Actions` and see the details of your running workflow
 10. Review your deployment and approve the pending UAT job
     - [Reviewing deployments](https://docs.github.com/en/actions/managing-workflow-runs/reviewing-deployments)
 11. Go to `Settings` > `Environments` and update the `PROD` environment created to protect it with approvals (same as UAT)
 
-## 3.3 Final
+## 3.4 Final
 <details>
   <summary>environments-secrets.yml</summary>
   
@@ -92,7 +96,7 @@ name: 03-1. Environments and Secrets
 
 on:
   push:
-     branches: [main]
+     branches: [module-03]
   pull_request:
      branches: [main]
   workflow_dispatch:    
