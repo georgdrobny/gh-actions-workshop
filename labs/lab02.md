@@ -78,7 +78,7 @@ on:
 3. Commit the changes into the `module-02` branch
 4. Go to `Actions` and see the details of your running workflow
 
-## 2.3 Final
+## 2.4 Final
 <details>
   <summary>job-dependencies.yml</summary>
   
