@@ -7,7 +7,7 @@ References:
 - [Adding an action to your workflow](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions#adding-an-action-to-your-workflow)
 
 ## 1.1 Create a new branch 
-Create a new branch named 'module-01' based on [main](../../tree/main)
+Create a new branch named 'module-01' based on 'main'
 
 ## 1.2 Update the workflow to trigger when a change is made to the labs folder on main branch
 
