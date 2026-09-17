@@ -20,8 +20,7 @@ References:
 2. Follow the guide to create a new repository secret called `MY_REPO_SECRET`
     - [Creating encrypted secrets for a repository](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)
 4. Open the workflow file [environments-secrets.yml](/.github/workflows/environments-secrets.yml)
-5. Edit the file and remove the existing job named `remove-me` (lines 22 to 27)
-6. Copy the following YAML content as a first job (after the `jobs:` line, line 22):
+5. Copy the following YAML content as a first job before the `use-environment-dev`job (after the `jobs:` line, line 22):
 ```YAML
 
   use-secrets:
