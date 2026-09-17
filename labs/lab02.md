@@ -55,9 +55,9 @@ References:
 4. Go to `Actions` and manually trigger the workflow by clicking on `Run Workflow` button
 5. See the details of your running workflow
 
-## 2.2 Create a matrix build
+## 2.3 Create a matrix build
 
-1. Using the same file as step 2.1, copy the following YAML content and replace the `build` job
+1. Using the same file as step 2.2, copy the following YAML content and replace the `build` job
 ```YAML
   build:
     runs-on: ubuntu-latest  
@@ -73,7 +73,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - module-02
 ```
 3. Commit the changes into the `module-02` branch
 4. Go to `Actions` and see the details of your running workflow
