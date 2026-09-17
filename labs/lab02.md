@@ -7,7 +7,11 @@ References:
 - [Using jobs in a workflow](https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow)
 - [Environment variables](https://docs.github.com/en/actions/learn-github-actions/environment-variables)
 
-## 2.1 Add new jobs with dependencies
+## 2.1 Create a new branch 
+1. Create a new branch named `module-02` based on `main`
+2. Switch to the `module-02` branch in the `code` view
+   
+## 2.2 Add new jobs with dependencies
 
 1. Open the workflow file [job-dependencies.yml](/.github/workflows/job-dependencies.yml)
 2. Edit the file and copy the following YAML content at the end of the file:
@@ -47,7 +51,7 @@ References:
     steps:
       - run: echo "This job will be run after the ring04 job."
 ```
-3. Commit the changes into the `main` branch
+3. Commit the changes into the `module-02` branch
 4. Go to `Actions` and manually trigger the workflow by clicking on `Run Workflow` button
 5. See the details of your running workflow
 
@@ -71,7 +75,7 @@ on:
     branches:
       - main
 ```
-3. Commit the changes into the `main` branch
+3. Commit the changes into the `module-02` branch
 4. Go to `Actions` and see the details of your running workflow
 
 ## 2.3 Final
@@ -85,7 +89,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - module-02
     
 jobs:
   initial:
