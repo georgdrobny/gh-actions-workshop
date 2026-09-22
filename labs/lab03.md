@@ -26,7 +26,7 @@ References:
   use-secrets:
     name: Use secrets
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/module-03' }}
+    #if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/module-03' }}
     steps:
       - name: Hello world action with secrets
         uses: actions/hello-world-javascript-action@main
@@ -62,7 +62,7 @@ on:
   use-environment-uat:
     name: Use UAT environment
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    #if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     needs: use-environment-test
 
     environment:
@@ -115,7 +115,7 @@ jobs:
   use-secrets:
     name: Use secrets
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    #if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     steps:
       - name: Hello world action with secrets
         uses: actions/hello-world-javascript-action@main
@@ -183,7 +183,7 @@ jobs:
   use-environment-uat:
     name: Use UAT environment
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    #if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     needs: use-environment-test
 
     environment:
