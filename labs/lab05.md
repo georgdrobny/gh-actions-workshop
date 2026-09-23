@@ -32,7 +32,11 @@ References:
 5. Go to `Actions` and see the details of your running workflow
 6. After the workflow completes, a new label should be applied to your issue
 
-## 5.2 Use a composite action
+## 5.2 Create a new branch 
+1. Create a new branch named `module-05` based on `main`
+2. Switch to the `module-05` branch in the `code` view
+   
+## 5.3 Use a composite action
 
 1. Open the composite action file [/.github/actions/hello-world-composite-action/action.yml](/.github/actions/hello-world-composite-action/action.yml)
 2. Edit the file and copy the following YAML content at the end of the file:
@@ -46,7 +50,7 @@ References:
       run: echo 'The time was ${{ steps.hello.outputs.time }}.'
       shell: bash
 ```
-3. Commit the changes into a new `feature/lab05` branch
+3. Commit the changes to `module-05` branch
 4. Open the workflow file [hello-world-composite.yml](/.github/workflows/hello-world-composite.yml)
 5. Edit the file and copy the following YAML content at the end of the file:
 ```YAML
@@ -54,7 +58,7 @@ References:
     runs-on: ubuntu-latest
     name: A job2 to say hello
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - id: hello-world
         uses: ./.github/actions/hello-world-composite-action
         with:
@@ -62,20 +66,17 @@ References:
       - run: echo random-number from composite action ${{ steps.hello-world.outputs.random-number }}
         shell: bash
 ```
-6. Update the workflow to run on pull_request events
+6. Update the workflow to run on push events
 ```YAML
 on:
-  pull_request:
-     branches: [main]
+  push:
+     branches: module-05
   workflow_dispatch:    
 ```
-7. Commit the changes into the same `feature/lab05` branch
-8. Open a new pull request
-9. Go to `Actions` and see the details of your running workflow
-10. Complete the pull request and delete the source branch
+7. Commit the changes into the same `module-05` branch
+8. Go to `Actions` and see the details of your running workflow
 
-## 5.3 Custom JS and Docker actions
-
+## 5.4 Custom JS and Docker actions
 1. Study the implementation of the custom action from the folder: [/.github/actions/](/.github/actions/)
 2. Open the workflow file [use-custom-actions.yml](/.github/workflows/use-custom-actions.yml)
 3. Edit the file and copy the following YAML content to update the issue title:
@@ -86,19 +87,19 @@ on:
 5. Go to `Actions` and manually trigger the workflow by clicking on `Run Workflow` button
 6. See the details of your running workflow
 
-## 5.4 (Optional) Create a JavaScript action
+## 5.5 (Optional) Create a JavaScript action
 1. Follow the guide to create a JavaScript action
     - [Creating a JavaScript action](https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action)
 2. Use your action in a workflow
 ```YAML
       - name: Hello world action step
         id: hello
-        uses: <YOUR-USER-ACCOUNT>/hello-world-javascript-action@v1.1
+        uses: /.github/actions/hello-world-javascript-action@v1.1
         with:
             who-to-greet: 'Mona the Octocat'
 ```
 
-## 5.5 Final
+## 5.6 Final
 <details>
   <summary>github-script.yml</summary>
   
@@ -186,8 +187,8 @@ runs:
 name: 05-2. Hello World Composite
 
 on:
-  pull_request:
-     branches: [main]
+  push:
+     branches: [module-05]
   workflow_dispatch:  
 
 jobs:
@@ -236,7 +237,7 @@ jobs:
   js-custom-actions:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - run: echo "🎉 Running the JS actions"
 
@@ -259,7 +260,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - run: echo "🎉 Running the Docker actions"
 
