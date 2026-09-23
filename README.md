@@ -29,7 +29,7 @@
 - Example: [github-script.yml](/.github/workflows/github-script.yml)
 - Example: [hello-world-composite.yml](/.github/workflows/hello-world-composite.yml)
 - Example: [use-custom-actions.yml](/.github/workflows/use-custom-actions.yml)
-- Repo: [githubabcs/hello-world-composite-action](https://github.com/githubabcs/hello-world-composite-action)
+- Repo: [hello-world-composite-action](/.github/actions/hello-world-composite-action)
 - Repo: [write-docker-actions](https://github.com/CalinL/write-docker-actions)
 - Repo: [write-javascript-actions](https://github.com/CalinL/writing-javascript-actions)
 - [ ] _Hands-on Lab:_ :point_right: [Activity 5](/labs/lab05.md)
