@@ -12,13 +12,14 @@
 name: "00. Security CodeQL Analysis"
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
+ workflow_dispatch: 
+ # push:
+ #   branches: [ main ]
+ # pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ main ]
-  schedule:
-    - cron: '16 14 * * 5'
+ #   branches: [ main ]
+ #  schedule:
+ #   - cron: '16 14 * * 5'
 
 jobs:
   analyze:
