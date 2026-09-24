@@ -10,7 +10,7 @@ on:
 jobs:
   # The first job lints the code base
   lint:
-    uses: githubabcs/gh-abcs-actions/.github/workflows/super-linter.yml@main
+    uses: ./.github/workflows/super-linter.yml
 
   # CI job to run a test suite on the code base
   ci:
@@ -24,7 +24,7 @@ jobs:
       matrix:
         # our matrix for testing across node versions and OSs
         node-version: [12, 14]
-        os: [windows-2019, ubuntu-20.04, ubuntu-22.04]
+        os: [windows-2022, ubuntu-22.04, ubuntu-24.04]
     
     steps:
       - name: Checkout
