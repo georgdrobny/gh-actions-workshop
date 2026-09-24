@@ -2,13 +2,13 @@ name: 00. GitHub Actions Usage Report (WIP)
 
 on:
   workflow_dispatch:
-  schedule:
+  # schedule:
     #        ┌─────────────── minute
     #        │ ┌──────────── hour
     #        │ │ ┌────────── day (month)
     #        │ │ │ ┌──────── month
     #        │ │ │ │ ┌────── day (week)
-    - cron: '0 1 * * *'
+    # - cron: '0 1 * * *'
     
 jobs:
   organization:
